@@ -23,3 +23,5 @@ NEMU(NJU Emulator) is a simple but complete full-system x86 emulator。Inspired 
  * most of them are simplified and unprogrammable
 * 2 types of I/O
  * port-mapped I/O and memory-mapped I/O
+
+## This project cost me almost all spare time thourgh the whole semester.Although I always felt bad when crazy bugs crash down the program, but I learn a lot from this project.Thanks to yzh.
