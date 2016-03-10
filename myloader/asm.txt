@@ -1,0 +1,258 @@
+
+loader:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00100000 <start>:
+  100000:	bd 00 00 00 00       	mov    $0x0,%ebp
+  100005:	bc 00 00 00 08       	mov    $0x8000000,%esp
+  10000a:	e9 81 00 00 00       	jmp    100090 <init>
+  10000f:	90                   	nop
+
+00100010 <loader>:
+  100010:	57                   	push   %edi
+  100011:	56                   	push   %esi
+  100012:	31 f6                	xor    %esi,%esi
+  100014:	53                   	push   %ebx
+  100015:	8b 15 1c 00 00 00    	mov    0x1c,%edx
+  10001b:	66 83 3d 2c 00 00 00 	cmpw   $0x0,0x2c
+  100022:	00 
+  100023:	75 14                	jne    100039 <loader+0x29>
+  100025:	eb 59                	jmp    100080 <loader+0x70>
+  100027:	90                   	nop
+  100028:	0f b7 05 2c 00 00 00 	movzwl 0x2c,%eax
+  10002f:	83 c6 01             	add    $0x1,%esi
+  100032:	83 c2 20             	add    $0x20,%edx
+  100035:	39 f0                	cmp    %esi,%eax
+  100037:	7e 47                	jle    100080 <loader+0x70>
+  100039:	83 3a 01             	cmpl   $0x1,(%edx)
+  10003c:	75 ea                	jne    100028 <loader+0x18>
+  10003e:	8b 4a 10             	mov    0x10(%edx),%ecx
+  100041:	8b 5a 08             	mov    0x8(%edx),%ebx
+  100044:	6b 7a 04 34          	imul   $0x34,0x4(%edx),%edi
+  100048:	85 c9                	test   %ecx,%ecx
+  10004a:	89 d8                	mov    %ebx,%eax
+  10004c:	74 14                	je     100062 <loader+0x52>
+  10004e:	29 df                	sub    %ebx,%edi
+  100050:	0f b6 0c 38          	movzbl (%eax,%edi,1),%ecx
+  100054:	88 08                	mov    %cl,(%eax)
+  100056:	83 c0 01             	add    $0x1,%eax
+  100059:	89 c1                	mov    %eax,%ecx
+  10005b:	29 d9                	sub    %ebx,%ecx
+  10005d:	39 4a 10             	cmp    %ecx,0x10(%edx)
+  100060:	77 ee                	ja     100050 <loader+0x40>
+  100062:	31 c9                	xor    %ecx,%ecx
+  100064:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100068:	c6 04 08 00          	movb   $0x0,(%eax,%ecx,1)
+  10006c:	8b 5a 14             	mov    0x14(%edx),%ebx
+  10006f:	83 c1 01             	add    $0x1,%ecx
+  100072:	2b 5a 10             	sub    0x10(%edx),%ebx
+  100075:	39 d9                	cmp    %ebx,%ecx
+  100077:	76 ef                	jbe    100068 <loader+0x58>
+  100079:	eb ad                	jmp    100028 <loader+0x18>
+  10007b:	90                   	nop
+  10007c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100080:	ff 15 18 00 00 00    	call   *0x18
+  100086:	31 c0                	xor    %eax,%eax
+  100088:	82                   	(bad)  
+  100089:	5b                   	pop    %ebx
+  10008a:	5e                   	pop    %esi
+  10008b:	5f                   	pop    %edi
+  10008c:	c3                   	ret    
+  10008d:	90                   	nop
+  10008e:	90                   	nop
+  10008f:	90                   	nop
+
+00100090 <init>:
+  100090:	83 ec 0c             	sub    $0xc,%esp
+  100093:	e8 78 ff ff ff       	call   100010 <loader>
+  100098:	b8 01 00 00 00       	mov    $0x1,%eax
+  10009d:	82                   	(bad)  
+  10009e:	83 c4 0c             	add    $0xc,%esp
+  1000a1:	c3                   	ret    
+
+loader:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00100000 <start>:
+  100000:	bd 00 00 00 00       	mov    $0x0,%ebp
+  100005:	bc 00 00 00 08       	mov    $0x8000000,%esp
+  10000a:	e9 a1 00 00 00       	jmp    1000b0 <init>
+  10000f:	90                   	nop
+
+00100010 <loader>:
+  100010:	55                   	push   %ebp
+  100011:	57                   	push   %edi
+  100012:	56                   	push   %esi
+  100013:	31 f6                	xor    %esi,%esi
+  100015:	53                   	push   %ebx
+  100016:	83 ec 0c             	sub    $0xc,%esp
+  100019:	8b 15 1c 00 00 00    	mov    0x1c,%edx
+  10001f:	66 83 3d 2c 00 00 00 	cmpw   $0x0,0x2c
+  100026:	00 
+  100027:	75 18                	jne    100041 <loader+0x31>
+  100029:	eb 65                	jmp    100090 <loader+0x80>
+  10002b:	90                   	nop
+  10002c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100030:	0f b7 05 2c 00 00 00 	movzwl 0x2c,%eax
+  100037:	83 c6 01             	add    $0x1,%esi
+  10003a:	83 c2 20             	add    $0x20,%edx
+  10003d:	39 f0                	cmp    %esi,%eax
+  10003f:	7e 4f                	jle    100090 <loader+0x80>
+  100041:	83 3a 01             	cmpl   $0x1,(%edx)
+  100044:	75 ea                	jne    100030 <loader+0x20>
+  100046:	8b 4a 10             	mov    0x10(%edx),%ecx
+  100049:	8b 42 08             	mov    0x8(%edx),%eax
+  10004c:	6b 7a 04 34          	imul   $0x34,0x4(%edx),%edi
+  100050:	85 c9                	test   %ecx,%ecx
+  100052:	89 c3                	mov    %eax,%ebx
+  100054:	74 4b                	je     1000a1 <loader+0x91>
+  100056:	29 c7                	sub    %eax,%edi
+  100058:	0f b6 0c 38          	movzbl (%eax,%edi,1),%ecx
+  10005c:	88 08                	mov    %cl,(%eax)
+  10005e:	8b 4a 10             	mov    0x10(%edx),%ecx
+  100061:	83 c0 01             	add    $0x1,%eax
+  100064:	89 c5                	mov    %eax,%ebp
+  100066:	29 dd                	sub    %ebx,%ebp
+  100068:	39 e9                	cmp    %ebp,%ecx
+  10006a:	77 ec                	ja     100058 <loader+0x48>
+  10006c:	39 4a 14             	cmp    %ecx,0x14(%edx)
+  10006f:	74 bf                	je     100030 <loader+0x20>
+  100071:	31 c9                	xor    %ecx,%ecx
+  100073:	90                   	nop
+  100074:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100078:	c6 04 08 00          	movb   $0x0,(%eax,%ecx,1)
+  10007c:	8b 5a 14             	mov    0x14(%edx),%ebx
+  10007f:	83 c1 01             	add    $0x1,%ecx
+  100082:	2b 5a 10             	sub    0x10(%edx),%ebx
+  100085:	39 d9                	cmp    %ebx,%ecx
+  100087:	72 ef                	jb     100078 <loader+0x68>
+  100089:	eb a5                	jmp    100030 <loader+0x20>
+  10008b:	90                   	nop
+  10008c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100090:	ff 15 18 00 00 00    	call   *0x18
+  100096:	31 c0                	xor    %eax,%eax
+  100098:	82                   	(bad)  
+  100099:	83 c4 0c             	add    $0xc,%esp
+  10009c:	5b                   	pop    %ebx
+  10009d:	5e                   	pop    %esi
+  10009e:	5f                   	pop    %edi
+  10009f:	5d                   	pop    %ebp
+  1000a0:	c3                   	ret    
+  1000a1:	31 c9                	xor    %ecx,%ecx
+  1000a3:	eb c7                	jmp    10006c <loader+0x5c>
+  1000a5:	90                   	nop
+  1000a6:	90                   	nop
+  1000a7:	90                   	nop
+  1000a8:	90                   	nop
+  1000a9:	90                   	nop
+  1000aa:	90                   	nop
+  1000ab:	90                   	nop
+  1000ac:	90                   	nop
+  1000ad:	90                   	nop
+  1000ae:	90                   	nop
+  1000af:	90                   	nop
+
+001000b0 <init>:
+  1000b0:	83 ec 0c             	sub    $0xc,%esp
+  1000b3:	e8 58 ff ff ff       	call   100010 <loader>
+  1000b8:	b8 01 00 00 00       	mov    $0x1,%eax
+  1000bd:	82                   	(bad)  
+  1000be:	83 c4 0c             	add    $0xc,%esp
+  1000c1:	c3                   	ret    
+
+loader:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00100000 <start>:
+  100000:	bd 00 00 00 00       	mov    $0x0,%ebp
+  100005:	bc 00 00 00 08       	mov    $0x8000000,%esp
+  10000a:	e9 a1 00 00 00       	jmp    1000b0 <init>
+  10000f:	90                   	nop
+
+00100010 <loader>:
+  100010:	55                   	push   %ebp
+  100011:	57                   	push   %edi
+  100012:	56                   	push   %esi
+  100013:	31 f6                	xor    %esi,%esi
+  100015:	53                   	push   %ebx
+  100016:	83 ec 0c             	sub    $0xc,%esp
+  100019:	8b 15 1c 00 00 00    	mov    0x1c,%edx
+  10001f:	66 83 3d 2c 00 00 00 	cmpw   $0x0,0x2c
+  100026:	00 
+  100027:	75 18                	jne    100041 <loader+0x31>
+  100029:	eb 65                	jmp    100090 <loader+0x80>
+  10002b:	90                   	nop
+  10002c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100030:	0f b7 05 2c 00 00 00 	movzwl 0x2c,%eax
+  100037:	83 c6 01             	add    $0x1,%esi
+  10003a:	83 c2 20             	add    $0x20,%edx
+  10003d:	39 f0                	cmp    %esi,%eax
+  10003f:	7e 4f                	jle    100090 <loader+0x80>
+  100041:	83 3a 01             	cmpl   $0x1,(%edx)
+  100044:	75 ea                	jne    100030 <loader+0x20>
+  100046:	8b 4a 10             	mov    0x10(%edx),%ecx
+  100049:	8b 42 08             	mov    0x8(%edx),%eax
+  10004c:	8b 7a 04             	mov    0x4(%edx),%edi
+  10004f:	85 c9                	test   %ecx,%ecx
+  100051:	89 c3                	mov    %eax,%ebx
+  100053:	74 4c                	je     1000a1 <loader+0x91>
+  100055:	29 c7                	sub    %eax,%edi
+  100057:	90                   	nop
+  100058:	0f b6 0c 38          	movzbl (%eax,%edi,1),%ecx
+  10005c:	88 08                	mov    %cl,(%eax)
+  10005e:	8b 4a 10             	mov    0x10(%edx),%ecx
+  100061:	83 c0 01             	add    $0x1,%eax
+  100064:	89 c5                	mov    %eax,%ebp
+  100066:	29 dd                	sub    %ebx,%ebp
+  100068:	39 e9                	cmp    %ebp,%ecx
+  10006a:	77 ec                	ja     100058 <loader+0x48>
+  10006c:	39 4a 14             	cmp    %ecx,0x14(%edx)
+  10006f:	74 bf                	je     100030 <loader+0x20>
+  100071:	31 c9                	xor    %ecx,%ecx
+  100073:	90                   	nop
+  100074:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100078:	c6 04 08 00          	movb   $0x0,(%eax,%ecx,1)
+  10007c:	8b 5a 14             	mov    0x14(%edx),%ebx
+  10007f:	83 c1 01             	add    $0x1,%ecx
+  100082:	2b 5a 10             	sub    0x10(%edx),%ebx
+  100085:	39 d9                	cmp    %ebx,%ecx
+  100087:	72 ef                	jb     100078 <loader+0x68>
+  100089:	eb a5                	jmp    100030 <loader+0x20>
+  10008b:	90                   	nop
+  10008c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  100090:	ff 15 18 00 00 00    	call   *0x18
+  100096:	31 c0                	xor    %eax,%eax
+  100098:	82                   	(bad)  
+  100099:	83 c4 0c             	add    $0xc,%esp
+  10009c:	5b                   	pop    %ebx
+  10009d:	5e                   	pop    %esi
+  10009e:	5f                   	pop    %edi
+  10009f:	5d                   	pop    %ebp
+  1000a0:	c3                   	ret    
+  1000a1:	31 c9                	xor    %ecx,%ecx
+  1000a3:	eb c7                	jmp    10006c <loader+0x5c>
+  1000a5:	90                   	nop
+  1000a6:	90                   	nop
+  1000a7:	90                   	nop
+  1000a8:	90                   	nop
+  1000a9:	90                   	nop
+  1000aa:	90                   	nop
+  1000ab:	90                   	nop
+  1000ac:	90                   	nop
+  1000ad:	90                   	nop
+  1000ae:	90                   	nop
+  1000af:	90                   	nop
+
+001000b0 <init>:
+  1000b0:	83 ec 0c             	sub    $0xc,%esp
+  1000b3:	e8 58 ff ff ff       	call   100010 <loader>
+  1000b8:	b8 01 00 00 00       	mov    $0x1,%eax
+  1000bd:	82                   	(bad)  
+  1000be:	83 c4 0c             	add    $0xc,%esp
+  1000c1:	c3                   	ret    

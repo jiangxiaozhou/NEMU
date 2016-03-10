@@ -1,0 +1,26 @@
+#include "prefix/prefix.h"
+
+#include "data-mov/mov.h"
+#include "push/push.h"
+#include "test/test.h"
+#include "jcc/jcc.h"
+#include "cmp/cmp.h"
+#include "jmp/jmp.h"
+#include "call/call.h"
+#include "arithmetic/arithmetic.h"
+#include "logical/not.h"
+#include "logical/and.h"
+#include "logical/xor.h"
+#include "logical/or.h"
+#include "lea/lea.h"
+#include "xchg/xchg.h"
+
+#include "str_trans/stos.h"
+
+#include "setcc/setcc.h"
+#include "repeat.h"
+#include "flags-ctr/flags-ctr.h"
+#include "int/int.h"
+#include "lgdt-lidt/lgdt-lidt.h"
+
+#include "misc/misc.h"
